@@ -2,9 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .perspective-1000 {
-    perspective: 1000px;
+/* Custom animation for the lanyard */
+@keyframes sway {
+  0%, 100% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+/* Additional utility classes */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+.animate-scroll {
+  animation: scroll 1.5s infinite;
+}
+
+.animate-sway {
+  animation: sway 4s ease-in-out infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Add z-index to ensure components layer correctly */
+.z-lace {
+  z-index: 15;
+}
+
+/* Improved shadow effects for depth */
+.lace-shadow {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3), 
+              0 2px 6px rgba(0,0,0,0.1), 
+              0 0 1px rgba(255,255,255,0.1);
+}
+
+/* Add a slight gradient to the body to improve overall visibility */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+    color: #ffffff;
   }
 }
 
@@ -22,4 +87,201 @@
     transparent 1px,
     transparent 10px
   );
+}
+
+/* Enhanced lace texture styles */
+.lace-realistic {
+  position: relative;
+  border-radius: 1px;
+  transform-origin: top;
+  transition: height 0.3s ease;
+}
+
+.lace-realistic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0) 30%,
+    rgba(0,0,0,0) 70%,
+    rgba(0,0,0,0.2) 100%
+  );
+  z-index: 2;
+}
+
+.lace-realistic::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.1) 0%,
+    rgba(255,255,255,0) 5%,
+    rgba(255,255,255,0) 95%,
+    rgba(255,255,255,0.05) 100%
+  );
+  z-index: 3;
+}
+
+/* Fix for sections to appear correctly with lanyard overlay */
+section {
+  position: relative;
+  z-index: 10;
+}
+
+/* Fix to ensure Hero section is visible with the lanyard */
+.hero-content {
+  position: relative;
+  z-index: 20;
+}
+
+/* Animation for smooth transitions */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Card styles */
+.card-lanyard {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+
+/* Marquee animations */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration, 30s) linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse var(--duration, 30s) linear infinite;
+}
+
+/* Sponsors scroll animation */
+@keyframes sponsors-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+
+.sponsors-scroll {
+  animation: sponsors-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+/* Add hover pause effect */
+.sponsors-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Add smooth transition for logos */
+.sponsor-logo {
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.sponsor-logo:hover {
+  transform: translateY(-5px) scale(1.05);
+  opacity: 1;
+}
+
+/* Apply hover effects directly to images */
+.sponsor-logo img {
+  transition: all 0.3s ease;
+  filter: none;
+}
+
+.sponsor-logo:hover img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+/* Prize Section Animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 15s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.filter.drop-shadow-glow {
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+/* Custom pulse animation with subtle glow */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+  50% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 15px currentColor);
+  }
+}
+
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 100%;
+  animation: gradient-x 15s ease infinite;
 }

@@ -1,51 +1,116 @@
 import React from 'react';
 
-const SponsorsSection = () => {
+export default function SponsorsSection() {
   return (
-    <section className="py-32 bg-black">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16">
-          Our Sponsors
-        </h2>
+    <section className="relative py-24 overflow-hidden">
+      {/* Solid background with minimal gradient effect - now fully transparent */}
+      <div className="absolute inset-0"></div>
+      <div className="absolute inset-0 opacity-0">
+        <div className="absolute top-0 -left-10 w-72 h-72 bg-transparent rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+        <div className="absolute top-0 -right-10 w-72 h-72 bg-transparent rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-0 left-20 w-72 h-72 bg-transparent rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+      </div>
 
-        <div className="space-y-24">
-          {/* Platinum Sponsors */}
-          <div>
-            <h3 className="text-2xl font-bold text-center text-white/80 mb-12">
-              Platinum Partners
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center">
-              {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="aspect-[3/2] bg-white/5 rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:bg-white/10"
-                >
-                  <div className="w-full h-full bg-white/10 rounded-lg"></div>
-                </div>
-              ))}
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 inline-block">Our Sponsors</span>
+          </h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Thanks to our amazing sponsors who make this hackathon possible. Their support helps us
+            create an unforgettable experience for all participants.
+          </p>
+        </div>
+
+        <div className="relative w-full overflow-hidden my-16">
+          {/* Gradient Masks for blur effect - now transparent */}
+          <div className="absolute left-0 top-0 h-full w-[120px] bg-gradient-to-r from-transparent to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 h-full w-[120px] bg-gradient-to-l from-transparent to-transparent z-10"></div>
+          
+          {/* Scrolling Sponsors */}
+          <div className="sponsors-scroll w-max flex items-center gap-20 py-10">
+            <div className="sponsor-logo flex flex-col items-center gap-3">
+              <img src="https://raw.githubusercontent.com/github/explore/f4ec5347a36e06540a69376753a7c37a8cb5a136/topics/supabase/supabase.png" 
+                   alt="Supabase" 
+                   className="h-12 object-contain" />
+              <span className="text-sm font-medium text-gray-300">Supabase</span>
+            </div>
+            
+            <div className="sponsor-logo flex flex-col items-center gap-3">
+              <img src="https://www.netlify.com/v3/img/components/logomark.svg" 
+                   alt="Netlify" 
+                   className="h-12 object-contain" />
+              <span className="text-sm font-medium text-gray-300">Netlify</span>
+            </div>
+            
+            <div className="sponsor-logo flex flex-col items-center gap-3">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Cloudflare_Logo.png/1200px-Cloudflare_Logo.png" 
+                   alt="CloudflareDev" 
+                   className="h-11 object-contain" />
+              <span className="text-sm font-medium text-gray-300">CloudflareDev</span>
+            </div>
+            
+            <div className="sponsor-logo flex flex-col items-center gap-3">
+              <img src="https://sentry-brand.storage.googleapis.com/sentry-logo-white.png" 
+                   alt="GetSentry" 
+                   className="h-12 object-contain" />
+              <span className="text-sm font-medium text-gray-300">GetSentry</span>
+            </div>
+  
+            <div className="sponsor-logo flex flex-col items-center gap-3">
+              <img src="https://pbs.twimg.com/profile_images/1729539310058147840/iE5EGXW3_400x400.jpg" 
+                   alt="Loops" 
+                   className="h-12 object-contain" />
+              <span className="text-sm font-medium text-gray-300">Loops</span>
+            </div>
+            
+            {/* Duplicate for infinite scrolling */}
+            <div className="sponsor-logo flex flex-col items-center gap-3">
+              <img src="https://raw.githubusercontent.com/github/explore/f4ec5347a36e06540a69376753a7c37a8cb5a136/topics/supabase/supabase.png" 
+                   alt="Supabase" 
+                   className="h-12 object-contain" />
+              <span className="text-sm font-medium text-gray-300">Supabase</span>
+            </div>
+            
+            <div className="sponsor-logo flex flex-col items-center gap-3">
+              <img src="https://www.netlify.com/v3/img/components/logomark.svg" 
+                   alt="Netlify" 
+                   className="h-12 object-contain" />
+              <span className="text-sm font-medium text-gray-300">Netlify</span>
+            </div>
+            
+            <div className="sponsor-logo flex flex-col items-center gap-3">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Cloudflare_Logo.png/1200px-Cloudflare_Logo.png" 
+                   alt="CloudflareDev" 
+                   className="h-11 object-contain" />
+              <span className="text-sm font-medium text-gray-300">CloudflareDev</span>
+            </div>
+            
+            <div className="sponsor-logo flex flex-col items-center gap-3">
+              <img src="https://sentry-brand.storage.googleapis.com/sentry-logo-white.png" 
+                   alt="GetSentry" 
+                   className="h-12 object-contain" />
+              <span className="text-sm font-medium text-gray-300">GetSentry</span>
+            </div>
+  
+            <div className="sponsor-logo flex flex-col items-center gap-3">
+              <img src="https://pbs.twimg.com/profile_images/1729539310058147840/iE5EGXW3_400x400.jpg" 
+                   alt="Loops" 
+                   className="h-12 object-contain" />
+              <span className="text-sm font-medium text-gray-300">Loops</span>
             </div>
           </div>
+        </div>
 
-          {/* Gold Sponsors */}
-          <div>
-            <h3 className="text-2xl font-bold text-center text-white/80 mb-12">
-              Gold Partners
-            </h3>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div
-                  key={i}
-                  className="aspect-square bg-white/5 rounded-xl p-6 transform transition-all duration-300 hover:scale-105 hover:bg-white/10"
-                >
-                  <div className="w-full h-full bg-white/10 rounded-lg"></div>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="mt-16 text-center">
+          <a 
+            href="#" 
+            className="bg-white text-black px-8 py-4 rounded-lg text-lg font-semibold transform transition-all hover:scale-105 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+          >
+            Become a Sponsor
+          </a>
         </div>
       </div>
     </section>
   );
-};
-
-export default SponsorsSection
+}
