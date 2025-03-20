@@ -185,13 +185,20 @@ section {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 1rem));
+    transform: translateX(calc(-20% - 1rem));
   }
 }
 
+.sponsors-scroll-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
 .sponsors-scroll {
-  animation: sponsors-scroll 40s linear infinite;
+  animation: sponsors-scroll 30s linear infinite;
   will-change: transform;
+  width: max-content;
 }
 
 /* Add hover pause effect */
@@ -202,7 +209,7 @@ section {
 /* Add smooth transition for logos */
 .sponsor-logo {
   transition: all 0.3s ease;
-  opacity: 1;
+  opacity: 0.9;
 }
 
 .sponsor-logo:hover {
@@ -213,12 +220,12 @@ section {
 /* Apply hover effects directly to images */
 .sponsor-logo img {
   transition: all 0.3s ease;
-  filter: none;
+  filter: grayscale(15%) brightness(0.9);
 }
 
 .sponsor-logo:hover img {
   transform: scale(1.08);
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+  filter: grayscale(0%) brightness(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
 }
 
 /* Prize Section Animations */

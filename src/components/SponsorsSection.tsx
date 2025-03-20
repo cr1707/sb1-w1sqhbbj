@@ -1,6 +1,35 @@
 import React from 'react';
 
 export default function SponsorsSection() {
+  // Create arrays of sponsors for better management
+  const sponsors = [
+    {
+      name: "Supabase",
+      logo: "https://raw.githubusercontent.com/github/explore/f4ec5347a36e06540a69376753a7c37a8cb5a136/topics/supabase/supabase.png",
+      height: "h-12"
+    },
+    {
+      name: "Netlify",
+      logo: "https://www.netlify.com/v3/img/components/logomark.svg",
+      height: "h-12"
+    },
+    {
+      name: "CloudflareDev",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Cloudflare_Logo.png/1200px-Cloudflare_Logo.png",
+      height: "h-11"
+    },
+    {
+      name: "GetSentry",
+      logo: "https://sentry-brand.storage.googleapis.com/sentry-logo-white.png",
+      height: "h-12"
+    },
+    {
+      name: "Loops",
+      logo: "https://pbs.twimg.com/profile_images/1729539310058147840/iE5EGXW3_400x400.jpg",
+      height: "h-12"
+    }
+  ];
+
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Solid background with minimal gradient effect - now fully transparent */}
@@ -23,81 +52,52 @@ export default function SponsorsSection() {
         </div>
 
         <div className="relative w-full overflow-hidden my-16">
-          {/* Gradient Masks for blur effect - now transparent */}
-          <div className="absolute left-0 top-0 h-full w-[120px] bg-gradient-to-r from-transparent to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 h-full w-[120px] bg-gradient-to-l from-transparent to-transparent z-10"></div>
+          {/* Gradient masks for fading effect on the edges */}
+          <div className="absolute left-0 top-0 h-full w-[120px] bg-gradient-to-r from-black to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 h-full w-[120px] bg-gradient-to-l from-black to-transparent z-10"></div>
           
-          {/* Scrolling Sponsors */}
-          <div className="sponsors-scroll w-max flex items-center gap-20 py-10">
-            <div className="sponsor-logo flex flex-col items-center gap-3">
-              <img src="https://raw.githubusercontent.com/github/explore/f4ec5347a36e06540a69376753a7c37a8cb5a136/topics/supabase/supabase.png" 
-                   alt="Supabase" 
-                   className="h-12 object-contain" />
-              <span className="text-sm font-medium text-gray-300">Supabase</span>
-            </div>
-            
-            <div className="sponsor-logo flex flex-col items-center gap-3">
-              <img src="https://www.netlify.com/v3/img/components/logomark.svg" 
-                   alt="Netlify" 
-                   className="h-12 object-contain" />
-              <span className="text-sm font-medium text-gray-300">Netlify</span>
-            </div>
-            
-            <div className="sponsor-logo flex flex-col items-center gap-3">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Cloudflare_Logo.png/1200px-Cloudflare_Logo.png" 
-                   alt="CloudflareDev" 
-                   className="h-11 object-contain" />
-              <span className="text-sm font-medium text-gray-300">CloudflareDev</span>
-            </div>
-            
-            <div className="sponsor-logo flex flex-col items-center gap-3">
-              <img src="https://sentry-brand.storage.googleapis.com/sentry-logo-white.png" 
-                   alt="GetSentry" 
-                   className="h-12 object-contain" />
-              <span className="text-sm font-medium text-gray-300">GetSentry</span>
-            </div>
-  
-            <div className="sponsor-logo flex flex-col items-center gap-3">
-              <img src="https://pbs.twimg.com/profile_images/1729539310058147840/iE5EGXW3_400x400.jpg" 
-                   alt="Loops" 
-                   className="h-12 object-contain" />
-              <span className="text-sm font-medium text-gray-300">Loops</span>
-            </div>
-            
-            {/* Duplicate for infinite scrolling */}
-            <div className="sponsor-logo flex flex-col items-center gap-3">
-              <img src="https://raw.githubusercontent.com/github/explore/f4ec5347a36e06540a69376753a7c37a8cb5a136/topics/supabase/supabase.png" 
-                   alt="Supabase" 
-                   className="h-12 object-contain" />
-              <span className="text-sm font-medium text-gray-300">Supabase</span>
-            </div>
-            
-            <div className="sponsor-logo flex flex-col items-center gap-3">
-              <img src="https://www.netlify.com/v3/img/components/logomark.svg" 
-                   alt="Netlify" 
-                   className="h-12 object-contain" />
-              <span className="text-sm font-medium text-gray-300">Netlify</span>
-            </div>
-            
-            <div className="sponsor-logo flex flex-col items-center gap-3">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Cloudflare_Logo.png/1200px-Cloudflare_Logo.png" 
-                   alt="CloudflareDev" 
-                   className="h-11 object-contain" />
-              <span className="text-sm font-medium text-gray-300">CloudflareDev</span>
-            </div>
-            
-            <div className="sponsor-logo flex flex-col items-center gap-3">
-              <img src="https://sentry-brand.storage.googleapis.com/sentry-logo-white.png" 
-                   alt="GetSentry" 
-                   className="h-12 object-contain" />
-              <span className="text-sm font-medium text-gray-300">GetSentry</span>
-            </div>
-  
-            <div className="sponsor-logo flex flex-col items-center gap-3">
-              <img src="https://pbs.twimg.com/profile_images/1729539310058147840/iE5EGXW3_400x400.jpg" 
-                   alt="Loops" 
-                   className="h-12 object-contain" />
-              <span className="text-sm font-medium text-gray-300">Loops</span>
+          {/* Scrolling Sponsors - using multiple duplications to ensure continuous scrolling */}
+          <div className="sponsors-scroll-wrapper w-full overflow-hidden">
+            <div className="sponsors-scroll w-max flex items-center gap-20 py-10">
+              {/* First set of sponsors */}
+              {sponsors.map((sponsor, index) => (
+                <div key={`sponsor-1-${index}`} className="sponsor-logo flex flex-col items-center gap-3">
+                  <img src={sponsor.logo} 
+                       alt={sponsor.name} 
+                       className={`${sponsor.height} object-contain`} />
+                  <span className="text-sm font-medium text-gray-300">{sponsor.name}</span>
+                </div>
+              ))}
+              
+              {/* Second set of sponsors */}
+              {sponsors.map((sponsor, index) => (
+                <div key={`sponsor-2-${index}`} className="sponsor-logo flex flex-col items-center gap-3">
+                  <img src={sponsor.logo} 
+                       alt={sponsor.name} 
+                       className={`${sponsor.height} object-contain`} />
+                  <span className="text-sm font-medium text-gray-300">{sponsor.name}</span>
+                </div>
+              ))}
+              
+              {/* Third set of sponsors for seamless looping */}
+              {sponsors.map((sponsor, index) => (
+                <div key={`sponsor-3-${index}`} className="sponsor-logo flex flex-col items-center gap-3">
+                  <img src={sponsor.logo} 
+                       alt={sponsor.name} 
+                       className={`${sponsor.height} object-contain`} />
+                  <span className="text-sm font-medium text-gray-300">{sponsor.name}</span>
+                </div>
+              ))}
+              
+              {/* Fourth set of sponsors for extra safety */}
+              {sponsors.map((sponsor, index) => (
+                <div key={`sponsor-4-${index}`} className="sponsor-logo flex flex-col items-center gap-3">
+                  <img src={sponsor.logo} 
+                       alt={sponsor.name} 
+                       className={`${sponsor.height} object-contain`} />
+                  <span className="text-sm font-medium text-gray-300">{sponsor.name}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
