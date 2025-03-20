@@ -6,58 +6,40 @@ import { cn } from '../lib/utils';
 const JudgesSection = () => {
   const judges = [
     {
-      name: 'Dr. Sarah Chen',
-      title: 'AI Research Director',
-      organization: 'Tech Innovation Labs',
-      location: 'San Francisco, CA',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&h=400&q=80',
-      bio: 'Leading AI researcher with over 15 years of experience in machine learning and neural networks.',
-      expertise: ['Machine Learning', 'Neural Networks', 'Computer Vision']
+      name: 'Theo - t3.gg',
+      title: 'Web Developer & Educator',
+      organization: 'T3 Stack Creator',
+      location: 'Remote',
+      image: 'https://yt3.googleusercontent.com/Y6jut5A-dhWRlv7W81kGxVFPtZGjZN97IhBP75uLnx2AVV7ZEJUUUxBKHlFw9GcwILxkz1E_cLc=s900-c-k-c0x00ffffff-no-rj',
+      bio: 'Creator of the T3 Stack and advocate for TypeScript. Known for educational content on modern web development.',
+      expertise: ['TypeScript', 'React', 'Next.js']
     },
     {
-      name: 'James Wilson',
-      title: 'CTO',
-      organization: 'Future Ventures',
-      location: 'New York, NY',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=400&q=80',
-      bio: 'Serial entrepreneur and tech investor. Founded three successful startups.',
-      expertise: ['Entrepreneurship', 'Venture Capital', 'Web3']
+      name: 'Saranormous',
+      title: 'Tech Entrepreneur',
+      organization: 'Software Engineer',
+      location: 'Bay Area, CA',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0O9XFnw51qv0B28o7cUiz7kU4u_96gIwtaQ&s',
+      bio: 'Tech entrepreneur and software engineer with expertise in building scalable products and startups.',
+      expertise: ['Entrepreneurship', 'Software Engineering', 'Product Design']
     },
     {
-      name: 'Dr. Maria Rodriguez',
-      title: 'Professor',
-      organization: 'MIT',
-      location: 'Boston, MA',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&h=400&q=80',
-      bio: 'Distinguished professor of Computer Science specializing in distributed systems.',
-      expertise: ['Distributed Systems', 'Cloud Computing', 'System Architecture']
+      name: 'Levelsio',
+      title: 'Indie Hacker',
+      organization: 'Nomad List',
+      location: 'Worldwide',
+      image: 'https://i.imgur.com/h37yVxd.png',
+      bio: 'Founder of Nomad List and prolific indie maker. Built multiple profitable bootstrapped businesses.',
+      expertise: ['Bootstrapping', 'Remote Work', 'SaaS']
     },
     {
-      name: 'David Park',
-      title: 'VP of Engineering',
-      organization: 'TechGiant',
-      location: 'Seattle, WA',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80',
-      bio: 'Engineering leader with expertise in scalable systems and team building.',
-      expertise: ['System Design', 'Leadership', 'Scalability']
-    },
-    {
-      name: 'Aisha Johnson',
-      title: 'UX Director',
-      organization: 'DesignWorks',
-      location: 'Chicago, IL',
-      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&h=400&q=80',
-      bio: 'Award-winning designer focused on creating intuitive user experiences.',
-      expertise: ['UX Design', 'Product Design', 'Accessibility']
-    },
-    {
-      name: 'Dr. Michael Zhang',
-      title: 'Research Scientist',
-      organization: 'Quantum Labs',
-      location: 'Austin, TX',
-      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&h=400&q=80',
-      bio: 'Quantum computing specialist working on next-generation algorithms.',
-      expertise: ['Quantum Computing', 'Algorithms', 'Data Science']
+      name: 'Evan You',
+      title: 'Creator of Vue.js',
+      organization: 'Vue.js',
+      location: 'Singapore',
+      image: 'https://cdn.cloudinary.com/stichting-frontend-amsterdam/image/upload/v1623140860/z6dcikzvjsjkeanzoyzn.jpg',
+      bio: 'Creator of Vue.js and Vite. Previously worked at Google. Open source advocate and framework designer.',
+      expertise: ['JavaScript', 'Vue.js', 'Front-end Architecture']
     }
   ];
 
