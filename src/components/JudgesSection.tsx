@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Linkedin, Twitter, Globe, Award, Star, MapPin, Building } from 'lucide-react';
 import { GlowingEffect } from './ui/glowing-effect';
 import { cn } from '../lib/utils';
 
 const JudgesSection = () => {
-  // Add more judges to make the scrolling effect more visible
   const judges = [
     {
       name: 'Dr. Sarah Chen',
@@ -62,24 +61,6 @@ const JudgesSection = () => {
     }
   ];
 
-  // Create a duplicate array of judges for infinite scrolling effect
-  const allJudges = [...judges, ...judges];
-  
-  // State for animation control
-  const [resetPosition, setResetPosition] = useState(false);
-
-  // Reset position for seamless looping
-  useEffect(() => {
-    const scrollDuration = 30000; // 30 seconds for one complete scroll
-    
-    const interval = setInterval(() => {
-      setResetPosition(true);
-      setTimeout(() => setResetPosition(false), 100);
-    }, scrollDuration);
-    
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Animated background gradient - keeping fully transparent */}
@@ -106,23 +87,25 @@ const JudgesSection = () => {
         </div>
 
         {/* Auto-scrolling judges carousel */}
-        <div className="relative w-full overflow-hidden">
-          <div 
-            className={`flex ${resetPosition ? 'transition-none' : 'transition-transform duration-[30000ms] ease-linear'}`}
-            style={{ transform: resetPosition ? 'translateX(0)' : 'translateX(-50%)' }}
-          >
-            <div className="flex gap-6 min-w-full">
-              {allJudges.map((judge, index) => (
-                <div key={index} className="w-[350px] flex-shrink-0">
-                  <JudgeCard judge={judge} />
-                </div>
-              ))}
-            </div>
-          </div>
-          
+        <div className="relative w-full overflow-hidden py-8">
           {/* Gradient overlays to indicate scrolling direction */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-black to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-black to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-28 bg-gradient-to-r from-black to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-28 bg-gradient-to-l from-black to-transparent z-10"></div>
+          
+          {/* First row of judges - scrolling left to right */}
+          <div className="w-max flex items-center gap-8 mb-8 sponsors-scroll" style={{"--duration": "60s"} as React.CSSProperties}>
+            {judges.map((judge, index) => (
+              <div key={`row1-${index}`} className="w-[350px] flex-shrink-0">
+                <JudgeCard judge={judge} />
+              </div>
+            ))}
+            {/* Duplicate for infinite scrolling */}
+            {judges.map((judge, index) => (
+              <div key={`row1-dup-${index}`} className="w-[350px] flex-shrink-0">
+                <JudgeCard judge={judge} />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Apply to be a judge CTA */}
