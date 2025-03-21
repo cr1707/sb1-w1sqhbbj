@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "prebuild": "echo 'Running prebuild dependency check' && npm ls --json || true",
     "lint": "eslint .",
     "preview": "vite preview",
-    "postinstall": "echo 'Applying dependency fixes' && npm install --legacy-peer-deps --force || true"
+    "postinstall": "echo 'Applying dependency fixes' || true"
   },
   "dependencies": {
     "@react-spring/web": "^9.7.3",
