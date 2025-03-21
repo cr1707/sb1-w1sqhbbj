@@ -13,7 +13,7 @@ export function Footer() {
               className="w-12 h-12 rounded-full"
             />
             <div>
-              <h2 className="text-xl font-bold text-white">Hackathon 2024</h2>
+              <h2 className="text-xl font-bold text-white">Bolt Hackathon 2025</h2>
               <p className="text-gray-400 mt-1">Building the future, one project at a time</p>
             </div>
           </div>
@@ -33,7 +33,7 @@ export function Footer() {
         
         <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2024 Hackathon. All rights reserved.
+            © 2025 Bolt Hackathon. All rights reserved.
           </p>
           
           <div className="flex gap-6">
